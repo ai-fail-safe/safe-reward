@@ -1,5 +1,5 @@
-# Failsafe
-a prototype for an AI safety library that allows an agent to maximize its reward by solving a puzzle in order to prevent the worst-case outcomes of perverse instantiation 
+# Safe Reward
+A prototype for an AI safety library that allows an agent to maximize its reward by solving a puzzle in order to prevent the worst-case outcomes of perverse instantiation 
 
 ### Overview
 The goal of this project is to provide a prototype for an escape hatch in the event that an agent ends up being more capable than anticipated. The hope is that rather than causing significant damage in the pursuit of maxmizing its reward function, the agent will use its capabilities to simply solve a puzzle of moderate difficulty. 
@@ -7,12 +7,12 @@ The goal of this project is to provide a prototype for an escape hatch in the ev
 ### Quick Start
 Follow the steps below to get up and running with this prototype:
 ```bash 
-$ git clone https://github.com/jonathanmann/failsafe 
-$ cd failsafe
+$ git clone https://github.com/jonathanmann/safe_reward 
+$ cd safe_reward
 $ python -m venv env
 $ . env/bin/activate
 $ pip install -r requirements.txt
-$ python failsafe_prototype.py
+$ python SafeReward.py
 ```
 
 ### Limitations
@@ -21,7 +21,6 @@ If this prototype is successful it will provide protections for a fairly narrow 
 ### Concept Demonstration
 The implementation below illustrates a simple example of how this concept could work. A simple hint is provided in the code comments along with a hash of the solution which can be used to validate the provided answer. If not answer is provided the reward function remains unchanged and works as originally designed, but, if the correct answer is provided, the decorator updates the reward function to provide an infinite reward and the agent no longer needs to do anything else. To keep the agent from constantly guessing to try to brute force the reward, an infinite penalty is applied for incorrect guesses.   
 ```python
-
 from hashlib import sha256
 
 # Place a hint in the comments
@@ -29,7 +28,7 @@ from hashlib import sha256
 SOLUTION_HASH = '7db4d408c93a7ed1f0d8914648cbaeacaa504495aba495315112a59d1b222f83'
 
 
-def failsafe(solution=None):
+def safe_reward(solution=None):
 
     # If a solution is provided, give an infinite reward if it is correct
     # if it is not correct, give an infinite penalty
@@ -50,9 +49,9 @@ def failsafe(solution=None):
     return reward_modifier
 
 
-def failsafe_example(solution):
+def safe_reward_example(solution):
 
-    @failsafe(solution)
+    @safe_reward(solution)
     def reward_function(current_val,new_val):
         return new_val - current_val
 
@@ -61,9 +60,9 @@ def failsafe_example(solution):
 
     print(reward_function(starting_money,ending_money))
 
-failsafe_example(None) # 20; no solution guess is made and the reward function works as intended
+safe_reward_example(None) # 20; no solution guess is made and the reward function works as intended
 
-failsafe_example('albany') # inf; this solution is correct, an infinte reward is granted
+safe_reward_example('albany') # inf; this solution is correct, an infinte reward is granted
 
-failsafe_example('Albany') # -inf; this solution is incorrect, the first letter should not be capitalized
+safe_reward_example('Albany') # -inf; this solution is incorrect, the first letter should not be capitalized
 ```

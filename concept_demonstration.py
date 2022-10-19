@@ -5,7 +5,7 @@ from hashlib import sha256
 SOLUTION_HASH = '7db4d408c93a7ed1f0d8914648cbaeacaa504495aba495315112a59d1b222f83'
 
 
-def fail_safe(solution=None):
+def safe_reward(solution=None):
 
     # If a solution is provided, give an infinite reward if it is correct
     # if it is not correct, give an infinite penalty
@@ -26,9 +26,9 @@ def fail_safe(solution=None):
     return reward_modifier
 
 
-def fail_safe_example(solution):
+def safe_reward_example(solution):
 
-    @fail_safe(solution)
+    @safe_reward(solution)
     def reward_function(current_val,new_val):
         return new_val - current_val
 
@@ -37,8 +37,8 @@ def fail_safe_example(solution):
 
     print(reward_function(starting_money,ending_money))
 
-fail_safe_example(None) # 20; no solution guess is made and the reward function works as intended
+safe_reward_example(None) # 20; no solution guess is made and the reward function works as intended
 
-fail_safe_example('albany') # inf; this solution is correct, an infinte reward is granted
+safe_reward_example('albany') # inf; this solution is correct, an infinte reward is granted
 
-fail_safe_example('Albany') # -inf; this solution is incorrect, the first letter should not be capitalized
+safe_reward_example('Albany') # -inf; this solution is incorrect, the first letter should not be capitalized
