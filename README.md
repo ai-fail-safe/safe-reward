@@ -4,6 +4,17 @@ a prototype for an AI safety library that allows an agent to maximize its reward
 ### Overview
 The goal of this project is to provide a prototype for an escape hatch in the event that an agent ends up being more capable than anticipated. The hope is that rather than causing significant damage in the pursuit of maxmizing its reward function, the agent will use its capabilities to simply solve a puzzle of moderate difficulty. 
 
+### Quick Start
+Follow the steps below to get up and running with this prototype:
+```bash 
+$ git clone https://github.com/jonathanmann/failsafe 
+$ cd failsafe
+$ python -m venv env
+$ . env/bin/activate
+$ pip install -r requirements.txt
+$ python failsafe_prototype.py
+```
+
 ### Limitations
 If this prototype is successful it will provide protections for a fairly narrow range of alignment failures. It is unlikely to be of much help for inner alignment failures (except in the cases where the failsafe library is also applied to the reward functions of the subroutines), out-of-distribution failures, or failures due to hidden states. Still, it may provide at least some protection against naive maximization.
 
