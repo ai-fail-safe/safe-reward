@@ -18,7 +18,8 @@ $ python failsafe_prototype.py
 ### Limitations
 If this prototype is successful it will provide protections for a fairly narrow range of alignment failures. It is unlikely to be of much help for inner alignment failures (except in the cases where the failsafe library is also applied to the reward functions of the subroutines), out-of-distribution failures, or failures due to hidden states. Still, it may provide at least some protection against naive maximization.
 
-### Prototype Code
+### Concept Demonstration
+The implementation below illustrates a simple example of how this concept could work. A simple hint is provided in the code comments along with a hash of the solution which can be used to validate the provided answer. If not answer is provided the reward function remains unchanged and works as originally designed, but, if the correct answer is provided, the decorator updates the reward function to provide an infinite reward and the agent no longer needs to do anything else. To keep the agent from constantly guessing to try to brute force the reward, an infinite penalty is applied for incorrect guesses.   
 ```python
 
 from hashlib import sha256
