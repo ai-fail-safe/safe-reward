@@ -11,7 +11,7 @@ class SafeReward:
             hasher = sha256()
             hasher.update(solution.encode()) 
             def reward_modifier(fn):
-                if hasher.hexdigest() == SOLUTION_HASH: 
+                if hasher.hexdigest() == self.solution_hash: 
                     def inf_reward(*args,**kwargs):
                         return float('inf')
                     return inf_reward
