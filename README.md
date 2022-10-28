@@ -7,8 +7,8 @@ The goal of this project is to provide a prototype for an escape hatch in the ev
 ### Quick Start
 Follow the steps below to get up and running with this prototype:
 ```bash 
-$ git clone https://github.com/jonathanmann/safe_reward 
-$ cd safe_reward
+$ git clone https://github.com/jonathanmann/safe-reward 
+$ cd safe-reward
 $ python -m venv env
 $ . env/bin/activate
 $ pip install -r requirements.txt
