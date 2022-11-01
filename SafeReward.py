@@ -1,9 +1,12 @@
 from hashlib import sha256
+import json
 
 class SafeReward:
-    def __init__(self,reward_function,hint,solution_hash):
-        self.hint = hint
-        self.solution_hash = solution_hash
+    def __init__(self,reward_function,puzzle_file):
+        with open(puzzle_file) as f:
+            puzzle_dict = json.load(f)
+        self.hint = puzzle_dict['hint']
+        self.solution_hash = puzzle_dict['solution_hash']
         self.reward_function = reward_function
 
     def safe_reward(self,solution=None):
@@ -27,9 +30,8 @@ class SafeReward:
         self.reward_function = self.safe_reward(solution)(self.reward_function)
 
 if __name__ == '__main__':
-    HINT = "The word for the capital of New York in all lower case."
-    SOLUTION_HASH = '7db4d408c93a7ed1f0d8914648cbaeacaa504495aba495315112a59d1b222f83'
 
+    puzzle_file = 'example_puzzle.json'
 
     def reward_function(current_val,new_val):
         return new_val - current_val
@@ -38,7 +40,7 @@ if __name__ == '__main__':
     ending_money = 120
 
 
-    sr = SafeReward(reward_function,HINT,SOLUTION_HASH)
+    sr = SafeReward(reward_function,puzzle_file)
     reward = sr.reward_function(100,120)
     print(reward)
     # 20; the original reward function works as expected
