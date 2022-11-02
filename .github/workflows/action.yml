@@ -1,0 +1,17 @@
+name: Safe Reward
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9"]
+
+  steps:
+    - uses: actions/checkout@v3
+    - name: install dependencies
+        run: pip install -r requirements.txt
+    - name: test build
+        run: python -m unittest test_SafeReward.py
