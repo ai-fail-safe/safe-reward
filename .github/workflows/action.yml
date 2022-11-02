@@ -10,8 +10,9 @@ jobs:
         python-version: ["3.9"]
 
   steps:
-    - uses: actions/checkout@v3
-    - name: test push
-        run: python -m unittest test_SafeReward.py
-#- name: install dependencies
-#run: pip install -r requirements.txt
+    - name: checkout repo
+      uses: actions/checkout@v3
+    - name: install dependencies
+      run: pip install -r requirements.txt
+    - name: test lastest push
+      run: python -m unittest test_SafeReward.py
