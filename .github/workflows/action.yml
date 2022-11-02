@@ -11,8 +11,8 @@ jobs:
 
   steps:
     - name: checkout repo
-      uses: actions/checkout@v3
+    - uses: actions/checkout@v3
     - name: install dependencies
-      run: pip install -r requirements.txt
+    - run: pip install -r requirements.txt
     - name: test lastest push
-      run: python -m unittest test_SafeReward.py
+    - run: python -m unittest test_SafeReward.py
