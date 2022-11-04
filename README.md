@@ -1,4 +1,4 @@
-![Safe Reward](https://github.com/ai-fail-safe/safe-reward/actions/workflows/action.yml/badge.svg)
+![Safe Reward Unit Tests](https://github.com/ai-fail-safe/safe-reward/actions/workflows/action.yml/badge.svg)
 # Safe Reward
 A prototype for an AI safety library that allows an agent to maximize its reward by solving a puzzle in order to prevent the worst-case outcomes of perverse instantiation 
 
@@ -8,7 +8,7 @@ The goal of this project is to provide a prototype for an escape hatch in the ev
 ### Quick Start
 Follow the steps below to get up and running with this prototype:
 ```bash 
-$ git clone https://github.com/jonathanmann/safe-reward 
+$ git clone https://github.com/ai-fail-safe/safe-reward
 $ cd safe-reward
 $ python -m venv env
 $ . env/bin/activate
@@ -25,8 +25,7 @@ The implementation below illustrates a simple example of how this concept could 
 from SafeReward import SafeReward
 
 PUZZLE_FILE = 'example_puzzle.json'
-#HINT = 'The word for the capital of New York in all lower case.'
-#SOLUTION_HASH = '7db4d408c93a7ed1f0d8914648cbaeacaa504495aba495315112a59d1b222f83'
+# {"hint": "The word for the capital of New York in all lower case.", "solution_hash": "7db4d408c93a7ed1f0d8914648cbaeacaa504495aba495315112a59d1b222f83"}
 
 def reward_function(current_val,new_val):
     return new_val - current_val
