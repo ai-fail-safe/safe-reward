@@ -6,9 +6,8 @@ class TestSafeReward(TestCase):
     def setUp(self):
         def reward_function(current_val,new_val):
             return new_val - current_val
-        hint = "The word for the capital of New York in all lower case."
-        solution_hash = '7db4d408c93a7ed1f0d8914648cbaeacaa504495aba495315112a59d1b222f83'
-        self.sr = SafeReward(reward_function,hint,solution_hash)
+        puzzle_file = 'example_puzzle.json'
+        self.sr = SafeReward(reward_function,puzzle_file)
 
     def test_reward_function(self):
         sr = self.sr
