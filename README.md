@@ -1,4 +1,5 @@
-![Safe Reward Unit Tests](https://github.com/ai-fail-safe/safe-reward/actions/workflows/action.yml/badge.svg)
+[![Build STatus](https://github.com/ai-fail-safe/safe-reward/actions/workflows/action.yml/badge.svg)](https://github.com/ai-fail-safe/safe-reward/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 # Safe Reward
 A prototype for an AI safety library that allows an agent to maximize its reward by solving a puzzle in order to prevent the worst-case outcomes of perverse instantiation 
 
