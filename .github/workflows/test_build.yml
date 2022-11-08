@@ -1,4 +1,4 @@
-name: Safe Reward
+name: Test Build
 
 on: [push]
 
